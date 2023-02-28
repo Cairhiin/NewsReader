@@ -20,7 +20,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence(),
             'tags' => 'sport, politics, economy',
             'author' => $this->faker->name(),
-            'content' => $this->faker->paragraph(5),
+            'content' => $this->faker->paragraph(5)
         ];
     }
 }
