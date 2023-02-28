@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
-<body>
+<body class="bg-gray-800 text-slate-300">
     <h1 class="text-3xl font-bold underline">News Reader</h1>
     {{-- VIEW OUTPUT GOES HERE --}}
     @yield('content')
