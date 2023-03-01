@@ -13,8 +13,8 @@ Route::get('/articles', function() {
     return view('articles');
 });
 
-Route::get('/articles/{id}', function($id) {
+Route::get('/articles/{article}', function(Article $article) {
     return view('article', [
-        'article' => Article::find($id)
+        'article' => $article
     ]);
-})->where('id', '[0-9]+');
+});
