@@ -1,26 +1,46 @@
 @extends('layout')
 @section('content')
-<div class="container mx-auto px-4 py-4 max-w-5xl">
-    <h1 class="font-sans text-5xl uppercase font-bold text-slate-500 py-5">Latest News</h1>
-    <div class="flex flex-wrap gap-10 justify-content">
-        @if (count($articles) == 0)
-            <p>No articles found!</p>
-        @endif
-        @foreach ($articles as $article) 
-            <div class="basis-[47%] shrink flex-initial bg-stone-900/30 rounded-md shadow">
-                <div class="h-64 bg-center" style="background-image: url({{asset('images/default.jpg')}})">
-                    <div class="p-2 text-sky-500">
-                        {{$article['tags']}}
-                    </div>
-                </div>
-                <div class="p-4">
-                    <h2 class="font-serif text-slate-100 text-xl font-bold">
-                        <a href="/articles/{{$article['id']}}">{{$article['title']}}</a>
-                    </h2>
-                    <p class="text-sky-500 font-bold pt-2">{{$article['author']}}</p>
-                </div>
-            </div>
-        @endforeach
+<main class="container mx-auto px-4 py-4">
+    <div class="grid gap-10 grid-cols-5">
+        <section class="col-span-3">
+            @if (count($articles) == 0)
+                <p>No articles found!</p>
+            @endif
+            @foreach ($articles as $article) 
+                @if ($loop->index % 3 == 0)
+                    <article class="border-b border-solid border-stone-300">
+                        <figure>
+                            <img class="w-full aspect-[11/6] object-none" src="{{asset('images/default.jpg')}}" />
+                            <div class="p-2 text-sky-500">
+                                {{$article['tags']}}
+                            </div>
+                            <figcaption class="py-2">
+                                <h2 class="font-serif text-stone-900 text-xl font-bold">
+                                    <a href="/articles/{{$article['id']}}">{{$article['title']}}</a>
+                                </h2>
+                                <p class="text-sky-500 font-bold pt-2">{{$article['author']}}</p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                @else
+                    <article class="border-b border-solid border-stone-300">
+                        <div class="py-2">
+                            <h2 class="font-serif text-stone-900 text-xl font-bold">
+                                <a href="/articles/{{$article['id']}}">{{$article['title']}}</a>
+                            </h2>
+                            <p class="text-sky-500 font-bold pt-2">{{$article['author']}}</p>
+                            <p class="text-stone-700 pt-2">{{explode('.', $article['content'])[0] . '.'}}</p>
+                            <div class="p-2 text-sky-500">
+                                {{$article['tags']}}
+                            </div>
+                        </div>
+                    </article>
+                @endif
+            @endforeach
+        </section>
+        <aside class="col-span-2">
+            <h3>Most Read</h3>
+        </aside>
     </div>
-</div>
+</main>
 @endsection
