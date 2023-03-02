@@ -8,11 +8,16 @@
     <title>News Reader</title>
 </head>
 <body class="bg-white text-slate-800">
-    <h1 class="text-3xl font-bold underline">News Reader</h1>
-    {{-- VIEW OUTPUT GOES HERE --}}
-    {{$slot}}
+    <nav>
+        <h1 class="text-3xl font-bold underline">News Reader</h1>
+        <a href="articles/create">Add Article</a>
+    </nav>
+    <main class="container mx-auto px-4 py-4 max-w-5xl">
+        {{-- VIEW OUTPUT GOES HERE --}}
+        {{$slot}}
+    </main>
+    <footer class="text-center bg-stone-800 p-4 text-gray-100">
+        Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
+    </footer>
 </body>
-<footer class="text-center bg-stone-800 p-4 text-gray-100">
-    Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
-</footer>
 </html>

@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function index() {
         return view('articles.index', [
-            'articles' => Article::latest()->filter(request(['tag']))->get()
+            'articles' => Article::latest()->filter(request(['tag', 'search']))->get()
         ]);
     }
 
@@ -17,5 +17,9 @@ class ArticleController extends Controller
         return view('articles.show', [
             'article' => $article
         ]);
+    }
+
+    public function create() {
+        return view('articles.create');
     }
 }
