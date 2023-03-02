@@ -10,7 +10,7 @@
 <body class="bg-white text-slate-800">
     <h1 class="text-3xl font-bold underline">News Reader</h1>
     {{-- VIEW OUTPUT GOES HERE --}}
-    @yield('content')
+    {{$slot}}
 </body>
 <footer class="text-center bg-stone-800 p-4 text-gray-100">
     Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
