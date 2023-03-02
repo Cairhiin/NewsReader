@@ -12,4 +12,7 @@
     {{-- VIEW OUTPUT GOES HERE --}}
     @yield('content')
 </body>
+<footer class="text-center bg-stone-800 p-4 text-gray-100">
+    Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
+</footer>
 </html>

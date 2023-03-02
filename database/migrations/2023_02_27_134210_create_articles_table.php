@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tags');
             $table->longText('content');
             $table->string('author');
+            $table->string('image');
             $table->timestamps();
         });
     }
