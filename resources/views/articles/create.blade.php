@@ -5,7 +5,8 @@
         </h2>
     </header>
 
-    <form action="">
+    <form method="POST" action="/articles">
+        @csrf
         <div class="mb-6">
             <label
                 for="title"
@@ -17,6 +18,9 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="title"
             />
+            @error('title')
+                <p class="text-red-500 mt-1">{{$message}}</p>
+            @enderror
         </div>
 
         <div class="mb-6">
@@ -29,17 +33,23 @@
                 name="tags"
                 placeholder="Example: sport, politics, etc"
             />
+            @error('tags')
+                <p class="text-red-500 mt-1">{{$message}}</p>
+            @enderror
         </div>
 
         <div class="mb-6">
-            <label for="logo" class="inline-block text-lg mb-2">
+            <label for="image" class="inline-block text-lg mb-2">
                 Image
             </label>
             <input
                 type="file"
                 class="border border-gray-200 rounded p-2 w-full"
-                name="logo"
+                name="image"
             />
+            @error('file')
+                <p class="text-red-500 mt-1">{{$message}}</p>
+            @enderror
         </div>
 
         <div class="mb-6">
@@ -51,10 +61,13 @@
             </label>
             <textarea
                 class="border border-gray-200 rounded p-2 w-full"
-                name="description"
+                name="content"
                 rows="10"
                 placeholder="Article main content"
             ></textarea>
+            @error('content')
+                <p class="text-red-500 mt-1">{{$message}}</p>
+            @enderror
         </div>
 
         <div class="mb-6">

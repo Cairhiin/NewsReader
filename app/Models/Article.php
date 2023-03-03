@@ -9,6 +9,9 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'tags', 'image', 'content'];
+    protected $attributes = ['author' => 'Frank van de Voorde'];
+
     public function scopeFilter($query, array $filters) {
         if ($filters['tag'] ?? false) {
             $query->where('tags', 'like', '%' . request('tag') . '%');

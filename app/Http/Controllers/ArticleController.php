@@ -22,4 +22,16 @@ class ArticleController extends Controller
     public function create() {
         return view('articles.create');
     }
+
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'tags' => 'required'
+        ]);
+
+        Article::create($formFields);
+        
+        return redirect('/');
+    }
 }
