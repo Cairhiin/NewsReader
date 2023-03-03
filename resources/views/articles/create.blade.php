@@ -17,6 +17,8 @@
                 type="text"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="title"
+                placeholder="Title"
+                value="{{old('title')}}"
             />
             @error('title')
                 <p class="text-red-500 mt-1">{{$message}}</p>
@@ -32,6 +34,7 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="tags"
                 placeholder="Example: sport, politics, etc"
+                value="{{old('tags')}}"
             />
             @error('tags')
                 <p class="text-red-500 mt-1">{{$message}}</p>
@@ -46,6 +49,7 @@
                 type="file"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="image"
+                value="{{old('image')}}"
             />
             @error('file')
                 <p class="text-red-500 mt-1">{{$message}}</p>
@@ -63,8 +67,8 @@
                 class="border border-gray-200 rounded p-2 w-full"
                 name="content"
                 rows="10"
-                placeholder="Article main content"
-            ></textarea>
+                placeholder="Article main content"              
+            >{{old('content')}}</textarea>
             @error('content')
                 <p class="text-red-500 mt-1">{{$message}}</p>
             @enderror

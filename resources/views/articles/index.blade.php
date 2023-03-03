@@ -10,6 +10,10 @@
                 @endphp
                 <x-article-card :article="$article" :isArticleHighlighted="$isArticleHighlighted" />
             @endforeach
+
+            <div class="mt-6 p-4">
+                {{$articles->links()}}
+            </div>
         </section>
         <aside class="col-span-2">
             <h3>Most Read</h3>
