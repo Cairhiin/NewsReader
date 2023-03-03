@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>News Reader</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-white text-slate-800">
     <nav>
@@ -19,5 +20,6 @@
     <footer class="text-center bg-stone-800 p-4 text-gray-100">
         Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
     </footer>
+    <x-flash-message />
 </body>
 </html>

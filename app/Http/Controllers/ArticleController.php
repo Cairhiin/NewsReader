@@ -31,7 +31,7 @@ class ArticleController extends Controller
         ]);
 
         Article::create($formFields);
-        
-        return redirect('/');
+
+        return redirect('/')->with('message', 'Article created successfully!');
     }
 }
