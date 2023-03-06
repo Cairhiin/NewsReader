@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('tags');
-            $table->longText('content');
-            $table->string('author');
-            $table->string('image')->nullable();
-            $table->timestamps();
-        });
+        if(!Schema::hasTable('articles')) {
+            Schema::create('articles', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('author_id')->constrained()->onDelete('cascade');
+                $table->string('title');
+                $table->string('tags');
+                $table->longText('content');
+                $table->string('image')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

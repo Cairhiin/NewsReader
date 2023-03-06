@@ -19,7 +19,6 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'tags' => 'sport, politics, economy',
-            'author' => $this->faker->name(),
             'content' => $this->faker->paragraph(5)
         ];
     }

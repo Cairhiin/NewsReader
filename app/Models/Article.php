@@ -10,7 +10,6 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'tags', 'image', 'content'];
-    protected $attributes = ['author' => 'Frank van de Voorde'];
 
     public function scopeFilter($query, array $filters) {
         if ($filters['tag'] ?? false) {
@@ -22,5 +21,9 @@ class Article extends Model
                 ->orWhere('description', 'like', '%' . request('search') . '%')
                 ->orWhere('tags', 'like', '%' . request('search') . '%');
         }
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'author_id');
     }
 }
