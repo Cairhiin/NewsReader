@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>News Reader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-white text-slate-800">
@@ -13,7 +16,7 @@
         <h1 class="text-3xl font-bold underline">News Reader</h1>
         <a href="/articles/create">Add Article</a>
     </nav>
-    <main class="container mx-auto px-4 py-4 max-w-5xl">
+    <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
         {{-- VIEW OUTPUT GOES HERE --}}
         {{$slot}}
     </main>

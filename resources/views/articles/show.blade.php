@@ -14,5 +14,10 @@
             </figure>
             <p class="py-4">{{$article['content']}}</p>
         </div>
+        <div>
+            <a href="/articles/{{$article->id}}/edit">
+                <i class="fa-solid fa-pencil"></i> Edit
+            </a>
+        </div>
     </div>
 </x-layout>

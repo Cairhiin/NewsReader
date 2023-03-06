@@ -38,4 +38,24 @@ class ArticleController extends Controller
 
         return redirect('/')->with('message', 'Article created successfully!');
     }
+
+    public function edit(Article $article) {
+        return view('articles.edit', ['article' => $article]);
+    }
+
+    public function update(Request $request, Article $article) {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'tags' => 'required'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $article->update($formFields);
+
+        return redirect('/articles/'. $article->id)->with('message', 'Article update successfully!');
+    }
 }
