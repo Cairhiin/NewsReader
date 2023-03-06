@@ -11,7 +11,7 @@
 <body class="bg-white text-slate-800">
     <nav>
         <h1 class="text-3xl font-bold underline">News Reader</h1>
-        <a href="articles/create">Add Article</a>
+        <a href="/articles/create">Add Article</a>
     </nav>
     <main class="container mx-auto px-4 py-4 max-w-5xl">
         {{-- VIEW OUTPUT GOES HERE --}}
