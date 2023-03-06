@@ -14,6 +14,8 @@
 <body class="bg-white text-slate-800">
     <nav>
         <h1 class="text-3xl font-bold underline">News Reader</h1>
+        <a href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
+        <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
         <a href="/articles/create">Add Article</a>
     </nav>
     <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
