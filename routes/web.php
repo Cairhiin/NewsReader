@@ -12,17 +12,20 @@ Route::get('/articles/create',
     [ArticleController::class, 'create'])->middleware('auth');
 
 Route::post('/articles', 
-    [ArticleController::class, 'store'])->middleware('auth');;
+    [ArticleController::class, 'store'])->middleware('auth');
 
 Route::get('/articles/{article}/edit', 
     [ArticleController::class, 'edit'])->middleware('auth');
 
 Route::put('/articles/{article}', 
-    [ArticleController::class, 'update'])->middleware('auth');;
+    [ArticleController::class, 'update'])->middleware('auth');
 
 Route::delete('/articles/{article}', 
-    [ArticleController::class, 'destroy'])->middleware('auth');;
+    [ArticleController::class, 'destroy'])->middleware('auth');
 
+Route::get('/articles/manage', 
+    [ArticleController::class, 'manage'])->middleware('auth');
+        
 Route::get('/articles/{article}', [ArticleController::class, 'show']);
 
 // User Routes

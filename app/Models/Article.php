@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'tags', 'image', 'content'];
+    protected $fillable = ['title', 'tags', 'image', 'content', 'author_id'];
 
     public function scopeFilter($query, array $filters) {
         if ($filters['tag'] ?? false) {
@@ -23,7 +24,7 @@ class Article extends Model
         }
     }
 
-    public function user() {
+    public function author() {
         return $this->belongsTo(User::class, 'author_id');
     }
 }

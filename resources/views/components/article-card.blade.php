@@ -17,7 +17,7 @@
             <h2 class="font-serif text-stone-900 text-xl font-bold">
                 {{$article->title}}</a>
             </h2>
-            <p class="text-sky-500 font-bold pt-2">{{$article->author}}</p>
+            <p class="text-sky-500 font-bold pt-2">{{$article->author->name}}</p>
             <p class="text-stone-700 pt-2">{{explode('.', $article->content)[0] . '.'}}</p>
             @if (!$isArticleHighlighted)
                 <div class="">

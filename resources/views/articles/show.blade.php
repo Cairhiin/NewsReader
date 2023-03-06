@@ -1,7 +1,7 @@
 <x-layout>
     <div class="mx-auto px-4 py-4 max-w-5xl">
         <div>
-            <p class="uppercase text-lime-300 font-bold">{{$article['author']}}</p>
+            <p class="uppercase text-lime-300 font-bold">{{$article->author->name}}</p>
             <h1 class="font-serif text-slate-100 text-3xl font-bold">{{$article['title']}}</h1>
             <figure class="relative">
                 <img 

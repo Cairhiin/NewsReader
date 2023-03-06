@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     public function index() {
         return view('articles.index', [
-            'articles' => Article::latest()->filter(request(['tag', 'search']))->simplePaginate(6)
+            'articles' => Article::latest()->with('author')->filter(request(['tag', 'search']))->simplePaginate(6)
         ]);
     }
 
@@ -33,6 +33,8 @@ class ArticleController extends Controller
         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
+
+        $formFields['author_id'] = auth()->id();
 
         Article::create($formFields);
 
@@ -62,5 +64,9 @@ class ArticleController extends Controller
     public function destroy(Article $article) {
         $article->delete();
         return redirect('/')->with('message', 'Article deleted successfully!');
+    }
+
+    public function manage() {
+        return view('articles.manage', ['articles' => auth()->user()->articles()->get()]);
     }
 }
