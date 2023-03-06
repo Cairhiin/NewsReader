@@ -5,7 +5,10 @@
         <div class="py-2">
             @if ($isArticleHighlighted)
                 <figure class="relative">
-                    <img class="w-full aspect-[11/6] object-none" src="{{asset('images/default.jpg')}}" />
+                    <img 
+                        class="w-full aspect-[11/6] object-none" 
+                        src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
+                    />
                     <figcaption class="absolute bottom-4 left-4">
                         <x-article-tags :tags="$article->tags" />
                     </figcaption>

@@ -5,7 +5,7 @@
         </h2>
     </header>
 
-    <form method="POST" action="/articles">
+    <form method="POST" action="/articles" enctype="multipart/form-data">
         @csrf
         <div class="mb-6">
             <label

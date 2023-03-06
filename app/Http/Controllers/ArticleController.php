@@ -30,6 +30,10 @@ class ArticleController extends Controller
             'tags' => 'required'
         ]);
 
+        if ($request->hasFile('image')) {
+            $formFields['image'] = $request->file('image')->store('images', 'public');
+        }
+
         Article::create($formFields);
 
         return redirect('/')->with('message', 'Article created successfully!');
