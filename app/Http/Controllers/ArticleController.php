@@ -58,4 +58,9 @@ class ArticleController extends Controller
 
         return redirect('/articles/'. $article->id)->with('message', 'Article update successfully!');
     }
+
+    public function destroy(Article $article) {
+        $article->delete();
+        return redirect('/')->with('message', 'Article deleted successfully!');
+    }
 }
