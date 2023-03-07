@@ -12,23 +12,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-white text-slate-800">
-    <nav>
-        <h1 class="text-3xl font-bold underline">News Reader</h1>
-        @auth
-            <span>Welcome, {{Auth()->user()->name}}</span>
-            <a href="/articles/manage"><i class="fa-solid fa-gear"></i> Manage articles</a>
-            <form class="inline" method="POST" action="/logout">
-                @csrf
-                <button type="submit">
-                    <i class="fa-solid fa-door-closed"></i> Logout
-                </button>
-            </form>
-        @else
-            <a href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
-            <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
-        @endauth
-        <a href="/articles/create">Add Article</a>
-    </nav>
+    @include('partials._nav')
     <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
         {{-- VIEW OUTPUT GOES HERE --}}
         {{$slot}}

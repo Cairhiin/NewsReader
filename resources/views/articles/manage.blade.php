@@ -51,4 +51,5 @@
             @endif
         </tbody>
     </table>
+    <a href="/articles/create">Add Article</a>
 </x-layout>
