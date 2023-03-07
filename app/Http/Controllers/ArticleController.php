@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -67,6 +68,6 @@ class ArticleController extends Controller
     }
 
     public function manage() {
-        return view('articles.manage', ['articles' => auth()->user()->articles()->get()]);
+        return view('articles.manage', ['articles' => Auth::user()->articles()->get()]);
     }
 }
