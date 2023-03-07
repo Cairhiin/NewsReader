@@ -36,14 +36,18 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            $image = $request->file('image');
             $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif'];
-            $fileExt = explode('.', $request->file('image')->getClientOriginalName());
-            $fileExt = strtolower(end($fileExt));
-            
-            if(in_array($fileExt, $allowedExtensions)) {
-                $formFields['image'] = $request->file('image')->store('images', 'public');
-            } else {
+            $fileExt = $image->getClientOriginalExtension();
+
+            if(!in_array($fileExt, $allowedExtensions)) {
                 return back()->withErrors(['image' => 'Invalid file format']); 
+            }
+
+            if($image->getSize() <= 2000000) {
+                $formFields['image'] = $image->store('images', 'public');
+            } else {
+                return back()->withErrors(['image' => 'File is too large']); 
             }
         }
 
