@@ -51,7 +51,7 @@
                 name="image"
                 value="{{old('image')}}"
             />
-            @error('file')
+            @error('image')
                 <p class="text-red-500 mt-1">{{$message}}</p>
             @enderror
         </div>

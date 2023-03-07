@@ -36,7 +36,15 @@ class ArticleController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $formFields['image'] = $request->file('image')->store('images', 'public');
+            $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+            $fileExt = explode('.', $request->file('image')->getClientOriginalName());
+            $fileExt = strtolower(end($fileExt));
+            
+            if(in_array($fileExt, $allowedExtensions)) {
+                $formFields['image'] = $request->file('image')->store('images', 'public');
+            } else {
+                return back()->withErrors(['image' => 'Invalid file format']); 
+            }
         }
 
         $formFields['author_id'] = Auth::id();
@@ -79,7 +87,7 @@ class ArticleController extends Controller
         if ($article->author_id != Auth::id()) {
             abort(403, 'Unauthorized Request');
         }
-        
+
         $article->delete();
         return redirect('/')->with('message', 'Article deleted successfully!');
     }
