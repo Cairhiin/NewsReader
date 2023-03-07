@@ -8,23 +8,27 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('articles.index', [
             'articles' => Article::latest()->with('author')->filter(request(['tag', 'search']))->simplePaginate(6)
         ]);
     }
 
-    public function show(Article $article) {
+    public function show(Article $article)
+    {
         return view('articles.show', [
             'article' => $article
         ]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('articles.create');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $formFields = $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -35,18 +39,25 @@ class ArticleController extends Controller
             $formFields['image'] = $request->file('image')->store('images', 'public');
         }
 
-        $formFields['author_id'] = auth()->id();
+        $formFields['author_id'] = Auth::id();
 
         Article::create($formFields);
 
         return redirect('/')->with('message', 'Article created successfully!');
     }
 
-    public function edit(Article $article) {
+    public function edit(Article $article)
+    {
         return view('articles.edit', ['article' => $article]);
     }
 
-    public function update(Request $request, Article $article) {
+    public function update(Request $request, Article $article)
+    {
+        // Check if user is owner
+        if ($article->author_id != Auth::id()) {
+            abort(403, 'Unauthorized Request');
+        }
+
         $formFields = $request->validate([
             'title' => 'required',
             'content' => 'required',
@@ -59,15 +70,22 @@ class ArticleController extends Controller
 
         $article->update($formFields);
 
-        return redirect('/articles/'. $article->id)->with('message', 'Article update successfully!');
+        return redirect('/articles/' . $article->id)->with('message', 'Article update successfully!');
     }
 
-    public function destroy(Article $article) {
+    public function destroy(Article $article)
+    {
+        // Check if user is owner
+        if ($article->author_id != Auth::id()) {
+            abort(403, 'Unauthorized Request');
+        }
+        
         $article->delete();
         return redirect('/')->with('message', 'Article deleted successfully!');
     }
 
-    public function manage() {
+    public function manage()
+    {
         return view('articles.manage', ['articles' => Auth::user()->articles()->get()]);
     }
 }
