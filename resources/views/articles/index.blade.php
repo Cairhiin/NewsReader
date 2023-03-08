@@ -1,22 +1,19 @@
 <x-layout>   
-    <div class="grid gap-10 grid-cols-5">
-        <section class="col-span-3">
+    <div>
+        <div class="col-span-3">
+            <x-article-feature :articles=$articles></x-article-feature>
             @if (count($articles) == 0)
                 <p>No articles found!</p>
-            @endif
+            @else
             @foreach ($articles as $article) 
-                @php 
-                    $isArticleHighlighted = ($loop->index % 3 == 0);
-                @endphp
-                <x-article-card :article="$article" :isArticleHighlighted="$isArticleHighlighted" />
+                @if ($loop->index >= 4)
+                
+                @endif
             @endforeach
-
+            @endif
             <div class="mt-6 p-4">
                 {{$articles->links()}}
             </div>
-        </section>
-        <aside class="col-span-2">
-            <h3>Most Read</h3>
-        </aside>
+        </div>
     </div>
 </x-layout>
