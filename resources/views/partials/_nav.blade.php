@@ -23,12 +23,13 @@
         @endauth
         </div>
     </div>
+    @if ($categories)
     <div class="flex justify-start bg-stone-200 text-stone-900 text-gray-100 p-3">
         <ul class="uppercase font-bold text-sm">
-            <li class="inline mx-4">News</li>
-            <li class="inline mx-4">Sports</li>
-            <li class="inline mx-4">Business</li>
-            <li class="inline mx-4">Travel</li>
+            @foreach ($categories as $category)
+                <li class="inline mx-4">{{$category->name}}</li>
+            @endforeach
         </ul>
     </div>
+    @endif
 </nav>

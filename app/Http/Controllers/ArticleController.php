@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,8 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::latest()->with('author')->filter(request(['tag', 'search']))->simplePaginate(6)
+            'articles' => Article::latest()->with('author')->with('category')->filter(request(['tag', 'search']))->simplePaginate(6),
+            'categories' => Category::all()
         ]);
     }
 
