@@ -18,7 +18,7 @@
         @else
         <div class="inline ml-2 mr-4">
             <a class="mx-2" href="/register"><i class="fa-solid fa-user-plus"></i> Register</a>
-            <a href="/login ml-2"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+            <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
         </div>
         @endauth
         </div>
@@ -27,7 +27,9 @@
     <div class="flex justify-start bg-stone-200 text-stone-900 text-gray-100 p-3">
         <ul class="uppercase font-bold text-sm">
             @foreach ($categories as $category)
-                <li class="inline mx-4">{{$category->name}}</li>
+                <a href="/?category={{$category->id}}">
+                    <li class="inline mx-4">{{$category->name}}</li>
+                </a>
             @endforeach
         </ul>
     </div>

@@ -11,11 +11,15 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'tags', 'image', 'content', 'author_id'];
-    protected $attributes = ['category' => 1];
+    protected $attributes = ['category_id' => 1];
 
     public function scopeFilter($query, array $filters) {
         if ($filters['tag'] ?? false) {
             $query->where('tags', 'like', '%' . request('tag') . '%');
+        }
+
+        if ($filters['category'] ?? false) {
+            $query->where('category_id', 'like', request('category'));
         }
 
         if ($filters['search'] ?? false) {

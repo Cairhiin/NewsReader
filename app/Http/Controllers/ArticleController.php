@@ -12,8 +12,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::latest()->with('author')->with('category')->filter(request(['tag', 'search']))->simplePaginate(6),
-            'categories' => Category::all()
+            'articles' => Article::latest()->with('author')->with('category')->filter(request(['tag', 'category', 'search']))->simplePaginate(6)
         ]);
     }
 
