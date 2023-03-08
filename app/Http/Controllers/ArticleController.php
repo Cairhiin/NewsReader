@@ -33,7 +33,8 @@ class ArticleController extends Controller
         $formFields = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'tags' => 'required'
+            'tags' => 'required',
+            'category_id' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
@@ -53,7 +54,7 @@ class ArticleController extends Controller
         }
 
         $formFields['author_id'] = Auth::id();
-
+        
         Article::create($formFields);
 
         return redirect('/')->with('message', 'Article created successfully!');

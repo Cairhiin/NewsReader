@@ -26,6 +26,20 @@
         </div>
 
         <div class="mb-6">
+            <label class="block mb-2" for="category" class="inline-block text-lg mb-2">
+                Category
+            </label>
+            <select name="category_id" id="category">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <p class="text-red-500 mt-1">{{$message}}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
             <label for="tags" class="inline-block text-lg mb-2">
                 Tags (Comma Separated)
             </label>

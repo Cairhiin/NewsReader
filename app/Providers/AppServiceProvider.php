@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         View::composer(
-            ['partials._nav'], 'App\Http\View\Composers\CategoryComposer',
+            ['partials._nav', 'articles.create'], 'App\Http\View\Composers\CategoryComposer',
         );
     }
 
