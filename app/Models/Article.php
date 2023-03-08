@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -17,9 +18,9 @@ class Article extends Model
         if ($filters['tag'] ?? false) {
             $query->where('tags', 'like', '%' . request('tag') . '%');
         }
-
+       
         if ($filters['category'] ?? false) {
-            $query->where('category_id', 'like', request('category'));
+            $query->where('category_id', '=', request('category'));
         }
 
         if ($filters['search'] ?? false) {
