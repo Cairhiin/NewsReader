@@ -1,8 +1,9 @@
 <x-layout>   
     <div>
-        <div class="col-span-3">
-            <x-article-feature :articles=$articles></x-article-feature>
-            @if (count($articles) == 0)
+        <div class="col-span-3">            
+            @if (count($articles) > 3) 
+                <x-article-feature :articles=$articles></x-article-feature>
+            @elseif (count($articles) == 0)
                 <p>No articles found!</p>
             @else
             @foreach ($articles as $article) 
