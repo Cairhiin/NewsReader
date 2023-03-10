@@ -1,6 +1,7 @@
 <x-layout>   
     <div>
-        <div class="col-span-3 mx-32">            
+        <div class="col-span-3 mx-32 my-4">            
+            <x-header>News</x-header>
             @if (count($articles) > 3) 
                 <x-article-feature :articles=$articles></x-article-feature>
             @elseif (count($articles) == 0)
@@ -14,11 +15,17 @@
                     <x-article-card :article=$article></x-article-card>
                 @elseif ($loop->index == 8)
             </section>    
-            <section class="w-full my-8">
+            <section class="w-full my-8 flex justify-start">
+                <div class="basis-2/3">
+                    <x-header>More news</x-header>
                 @elseif ($loop->index > 8)
                     <x-article-simple-card :article=$article></x-article-simple-card>
                 @endif
             @endforeach
+                </div>
+                <aside class="basis-1/3">
+                    <x-header>Opinion</x-header>
+                </aside>
             </section>        
             <div class="mt-6 p-4">
                 {{$articles->links()}}

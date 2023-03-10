@@ -1,5 +1,5 @@
 @props(['articles', 'categories'])
-<section class="grid grid-cols-4 grid-rows-2 gap-1 place-content-start my-8">
+<section class="grid grid-cols-4 grid-rows-2 gap-1 place-content-start my-4">
     <div class="col-span-2 row-span-2 relative">
         <figure class="h-full">
             <img class="object-none h-full" src="{{$articles[0]->image ? asset('storage/' . $articles[0]->image) : asset('images/default.jpg')}}" />
