@@ -19,6 +19,22 @@ class UserController extends Controller
             'password' => ['required', 'confirmed', 'min:6']
         ]);
 
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+            $fileExt = $image->getClientOriginalExtension();
+
+            if(!in_array($fileExt, $allowedExtensions)) {
+                return back()->withErrors(['image' => 'Invalid file format']); 
+            }
+
+            if($image->getSize() <= 2000000) {
+                $formFields['image'] = $image->store('images', 'public');
+            } else {
+                return back()->withErrors(['image' => 'File is too large']); 
+            }
+        }
+
         // Hash password
         $formFields['password'] = bcrypt($formFields['password']);
         $user = User::create($formFields);
