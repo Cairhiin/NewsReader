@@ -25,6 +25,7 @@
                 </div>
                 <aside class="basis-1/3">
                     <x-header>Opinion</x-header>
+                    <x-opinion-sidebar :opinions=$opinions class="bg-stone-200"></x-opinion-sidebar>
                 </aside>
             </section>        
             <div class="mt-6 p-4">

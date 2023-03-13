@@ -22,7 +22,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'image'
     ];
+
+    protected $attributes = ['image' => 'images/default.jpg'];
 
     /**
      * The attributes that should be hidden for serialization.

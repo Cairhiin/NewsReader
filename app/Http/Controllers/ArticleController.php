@@ -12,7 +12,13 @@ class ArticleController extends Controller
     public function index()
     {
         return view('articles.index', [
-            'articles' => Article::latest()->with('category')->filter(request(['tag', 'category', 'search']))->simplePaginate(20)
+            'articles' => Article::latest()->with('category')
+                ->whereNot('category_id', '=', '5') // Filter out opinion pieces
+                ->filter(request(['tag', 'category', 'search']))
+                ->simplePaginate(20),
+            'opinions' => Article::latest()->with('category')
+                ->where('category_id', '=', '5')
+                ->simplePaginate(5), 
         ]);
     }
 
