@@ -16,10 +16,10 @@
                 @elseif ($loop->index == 8)
             </section>    
             <section class="w-full my-8 flex justify-start">
-                <div class="basis-2/3">
+                <div class="basis-2/3 mr-12">
                     <x-header>More news</x-header>
                 @elseif ($loop->index > 8)
-                    <x-article-simple-card :article=$article></x-article-simple-card>
+                    <x-article-simple-card :article=$article class="bg-stone-50"></x-article-simple-card>
                 @endif
             @endforeach
                 </div>
