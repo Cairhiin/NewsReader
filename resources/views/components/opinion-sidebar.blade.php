@@ -1,12 +1,14 @@
 @props(['opinions'])
-<div {{ $attributes->merge(['class' => 'my-3 p-2 rounded-md']) }}>
+<div {{ $attributes->merge(['class' => 'my-3']) }}>
     @foreach ($opinions as $opinion)
-    <div class="flex">
-        <img class="w-1/3" src="{{$opinion->image ? asset('storage/' . $opinion->image) : asset('images/default.jpg')}}" />
+    <figure class="flex p-3 items-center gap-4 bg-white mb-1 rounded-md">
+        <img class="w-20 h-20 rounded-full" src="{{$opinion->image ? asset('storage/' . $opinion->image) : asset('images/default.jpg')}}" />
         <div>
-            <h3>{{$opinion->title}}</h3>
-            <p>{{$opinion->author->name}}</p>
+            <figcaption class="grow">
+                <h3 class="font-bold text-xl">{{$opinion->title}}</h3>
+                <p class="text-sm text-stone-400">{{$opinion->author->name}}</p>
+            </figcaption>
         </div>
-    </div>    
+    </figure>    
     @endforeach
 </div>

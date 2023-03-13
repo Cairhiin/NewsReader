@@ -11,7 +11,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-white text-slate-800">
+<body class="bg-zinc-100 text-slate-800">
     @include('partials._nav')
     <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
         {{-- VIEW OUTPUT GOES HERE --}}
