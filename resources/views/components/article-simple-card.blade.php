@@ -1,5 +1,5 @@
 @props(['article'])
-<article {{ $attributes->merge(['class' => 'my-3 rounded-r-md flex gap-4']) }}>
+<article {{ $attributes->merge(['class' => 'my-3 flex gap-4']) }}>
     <figure>
         <img class="w-32 h-full" src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" />
     </figure>
