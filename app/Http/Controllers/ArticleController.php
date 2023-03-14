@@ -24,6 +24,8 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
+        $fields['views'] = ++$article->views;
+        $article->update($fields);
         return view('articles.show', [
             'article' => $article
         ]);

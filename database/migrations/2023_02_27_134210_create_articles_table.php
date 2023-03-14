@@ -19,6 +19,7 @@ return new class extends Migration
                 $table->string('title');
                 $table->string('tags');
                 $table->longText('content');
+                $table->integer('views');
                 $table->string('image')->nullable();
                 $table->timestamps();
             });

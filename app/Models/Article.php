@@ -11,7 +11,7 @@ class Article extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'tags', 'category_id', 'image', 'content', 'author_id'];
+    protected $fillable = ['title', 'tags', 'category_id', 'image', 'content', 'author_id', 'views'];
     protected $attributes = ['category_id' => 1];
 
     public function scopeFilter($query, array $filters) {
