@@ -18,18 +18,18 @@
             @endif
             <p class="py-2">{{$article['content']}}</p>
         </div>
-        <div class="flex items-center my-5 bg-slate-400/5 rounded-xl relative h-24 border border-slate-100 overflow-hidden">
+        <div class="flex items-center my-5 bg-slate-700/5 rounded-xl relative h-24 overflow-hidden">
             @if ($article->author->image)
                 <img 
                     src="{{asset('storage/' . $article->author->image)}}"
-                    class="w-28 h-28 rounded-full mr-2 absolute -left-6"
+                    class="w-40 h-40 rounded-full mr-2 absolute -left-10 border-16 border-slate-300 ring-16 ring-white"
                 />
             @endif
             <div>
-                <p class="ml-32 text-xl font-bold text-stone-700 leading-5">
+                <p class="ml-40 text-xl font-bold text-stone-700 leading-5">
                     {{$article->author->name}}
                 </p>
-                <p class="ml-32 text-md font-bold uppercase text-gray-500 leading-5">
+                <p class="ml-40 text-md font-bold uppercase text-gray-500 leading-5">
                     {{$article->author->role}}
                 </p>  
             </div>

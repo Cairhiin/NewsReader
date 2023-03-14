@@ -5,7 +5,14 @@ module.exports = {
     "./resources/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      borderWidth: {
+        '16': '16px',
+      },
+      ringWidth: {
+        '16': '16px',
+      },
+    },
   },
   plugins: [],
 }
