@@ -1,7 +1,11 @@
 <nav class="sticky top-0 z-10">
     <div class="flex justify-between items-center bg-stone-900 text-gray-100 p-3">
         <div>
-            <h1 class="text-3xl font-bold uppercase mx-4">News Reader</h1>
+            <a href="/">
+                <h1 class="text-3xl font-bold uppercase mx-4">
+                    News Reader
+                </h1>
+            </a>
         </div>
         <div>
         @auth

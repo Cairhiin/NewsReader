@@ -8,7 +8,7 @@
                 <p>No articles found!</p>
             @endif
             {{-- End the feature section and start a new one  --}}          
-            <section class="grid grid-cols-4 gap-8 mt-12">          
+            <section class="grid grid-cols-4 gap-8 mt-8">          
             @foreach ($articles as $article) 
                 {{-- Skip the first four news stories as they are in the featurette --}}
                 @if ($loop->index >= 4 && $loop->index < 8)              
