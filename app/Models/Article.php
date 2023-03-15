@@ -12,7 +12,7 @@ class Article extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'tags', 'category_id', 'image', 'content', 'author_id', 'views'];
-    protected $attributes = ['category_id' => 1];
+    protected $attributes = ['category_id' => 1, 'views' => 0];
 
     public function scopeFilter($query, array $filters) {
         if ($filters['tag'] ?? false) {

@@ -56,7 +56,6 @@
                 @enderror
             </div>
 
-            @if ()
             <div class="mb-6">
                 <label for="image" class="inline-block text-lg mb-2">
                     Image
