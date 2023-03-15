@@ -13,7 +13,9 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 <body class="bg-zinc-100 text-slate-800">
-    @include('partials._nav')
+    <header>
+        @include('partials._nav')
+    </header>
     <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
         {{-- VIEW OUTPUT GOES HERE --}}
         {{$slot}}
