@@ -7,7 +7,7 @@
             <p class="mb-4">Create an account</p>
         </header>
 
-        <form method="POST" action="/users">
+        <form method="POST" action="/users" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="name" class="inline-block text-lg mb-2">
