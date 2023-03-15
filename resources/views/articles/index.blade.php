@@ -25,7 +25,7 @@
                 </div>
                 <aside class="basis-2/5">
                     <x-header>Opinion</x-header>
-                    <x-opinion-sidebar :opinions=$opinions class="bg-white"></x-opinion-sidebar>
+                    <x-article.opinion-sidebar :opinions=$opinions class="bg-white"></x-article.opinion-sidebar>
                 </aside>
             </section>        
             <div class="mt-6 p-4">
