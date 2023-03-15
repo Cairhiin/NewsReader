@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="mx-auto my-4 py-8 px-12 max-w-screen-md bg-white rounded-md">
+    <div class="mx-auto my-4 py-8 px-12 max-w-screen-md bg-white rounded-md shadow-md">
         <div>
             <h1 class="font-serif text-stone-700 text-3xl font-bold">{{$article['title']}}</h1>
             <p class="text-stone-400 text-sm"> 
@@ -37,16 +37,18 @@
                 </div>
             </div>
         @endif
-        <div>
-            {{-- Add moderation buttons if the user is the author --}}
+        {{-- Add moderation buttons if the user is the author --}}
+        <div class="flex gap-4 mt-10">
             @if (Auth::id() == $article->author->id)
                 <a href="/articles/{{$article->id}}/edit">
-                    <i class="fa-solid fa-pencil"></i> Edit
+                    <button class="w-32 text-left bg-sky-600 hover:bg-sky-800 text-white rounded py-2 px-4 transition-colors duration-500 easeout">
+                        <i class="fa-solid fa-pencil pr-3"></i> Edit
+                    </button>
                 </a>
                 <form method="POST" action="/articles/{{$article->id}}">
                     @csrf
                     @method('DELETE')
-                    <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
+                    <button class="w-32 text-left bg-red-600 hover:bg-amber-600 text-white rounded py-2 px-4 transition-colors duration-500 easeout"><i class="fa-solid fa-trash pr-3"></i> Delete</button>
                 </form>
             @endif
         </div>
