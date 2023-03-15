@@ -1,6 +1,6 @@
 <x-layout>   
     <div>
-        <div class="col-span-3 mx-32 my-4">            
+        <div class="col-span-3 mx-4 xl:mx-32 my-4">            
             <x-header>News</x-header>
             @if (count($articles) > 3) 
                 <x-article.feature :articles=$articles></x-article.feature>
