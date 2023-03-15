@@ -31,7 +31,7 @@
     <div class="flex justify-start bg-stone-200 text-stone-900 text-gray-100 p-3">
         <ul class="uppercase font-bold text-sm">
             @foreach ($categories as $category)
-                <a href="/?category={{$category->id}}">
+                <a href="/categories/{{$category->id}}">
                     <li class="inline mx-4">{{$category->name}}</li>
                 </a>
             @endforeach

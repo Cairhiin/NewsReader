@@ -4,6 +4,7 @@ use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 
 // Article Routes
 Route::get('/', [ArticleController::class, 'index']);
@@ -41,3 +42,6 @@ Route::get('/login',
     [UserController::class, 'login'])->name('login')->middleware('guest');
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+// Category Routes
+Route::get('/categories/{category}', [CategoryController::class, 'show']);

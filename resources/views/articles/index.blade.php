@@ -11,7 +11,7 @@
             <section class="grid grid-cols-4 gap-8 mt-8">          
             @foreach ($articles as $article) 
                 {{-- Skip the first four news stories as they are in the featurette --}}
-                @if ($loop->index >= 4 && $loop->index < 8)              
+                @if (count($articles) > 3 && $loop->index >= 4 && $loop->index < 8)              
                     <x-article.card :article=$article></x-article.card>
                 @elseif ($loop->index == 8)
             </section>    
@@ -23,10 +23,14 @@
                 @endif
             @endforeach
                 </div>
-                <aside class="basis-2/5">
-                    <x-header>Opinion</x-header>
-                    <x-article.opinion-sidebar :opinions=$opinions class="bg-white"></x-article.opinion-sidebar>
-                </aside>
+                @if ($article ?? false)
+                    @if ($article->category->name == 'news')       
+                        <aside class="basis-2/5">
+                            <x-header>Opinion</x-header>
+                            <x-article.opinion-sidebar :opinions=$opinions class="bg-white"></x-article.opinion-sidebar>
+                        </aside>
+                    @endif
+                @endif
             </section>        
             <div class="mt-6 p-4">
                 {{$articles->links()}}
