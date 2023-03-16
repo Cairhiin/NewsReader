@@ -1,7 +1,7 @@
 <x-layout>
     <div class="col-span-3 mx-4 xl:mx-32 my-4">
         <x-header>{{ $category->name }}</x-header>
-        <div class="flex justify-center gap-8 my-4">
+        <section class="flex justify-center gap-8 my-4">
             @foreach ($articles as $article)
                 @if ($loop->index < 2)
                     <figure class="relative">
@@ -16,14 +16,14 @@
                         </figcaption>              
                     </figure> 
                     @if ($loop->index == 1)
-                        </div>
+                        </section>
                         <div class="flex">
-                            <div class="grid grid-cols-3 gap-8 my-8 basis-3/4">
+                            <section class="grid grid-cols-3 gap-8 my-8 basis-2/3">
                     @endif
                 @else
                     <figure>
                         <img 
-                            class="object-fit" 
+                            class="object-fit rounded" 
                             src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
                         />
                         <figcaption>
@@ -37,13 +37,17 @@
                     </figure>
                 @endif
             @endforeach
-            </div>
-            <div class="basis-1/4 m-8">
-                <x-header>Populair</x-header>
-                @foreach ($populairArticles as $article)
-                    <h4>{{$loop->index}} - {{$article->title}}</h4>
-                @endforeach
-            </div>
+            </section>
+            <aside class="basis-1/3 ml-8 mt-8">
+                    <x-header class="mb-4">Populair</x-header>
+                    <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
+                    @foreach ($populairArticles as $article)
+                        <h4 class="py-2 last:pb-0">{{$article->title}}
+                            <span class="text-xs text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</span>
+                        </h4>
+                    @endforeach
+                    </div>
+            </aside>
         </div>
     </div>
 </x-layout>
