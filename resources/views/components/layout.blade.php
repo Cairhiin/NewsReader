@@ -16,7 +16,7 @@
     <header>
         @include('partials._nav')
     </header>
-    <main class="md:container md:mx-auto px-4 py-4 max-w-5xl">
+    <main class="container mx-auto px-4 py-4 max-w-screen-2xl">
         {{-- VIEW OUTPUT GOES HERE --}}
         {{$slot}}
     </main>

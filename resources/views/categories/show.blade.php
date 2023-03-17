@@ -39,14 +39,14 @@
             @endforeach
             </section>
             <aside class="basis-1/3 ml-8 mt-8">
-                    <x-header class="mb-4">Populair</x-header>
-                    <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
-                    @foreach ($populairArticles as $article)
-                        <h4 class="py-2 last:pb-0">{{$article->title}}
-                            <span class="text-xs text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</span>
-                        </h4>
-                    @endforeach
-                    </div>
+                <x-header class="mb-4">Populair</x-header>
+                <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
+                @foreach ($populairArticles as $article)
+                    <h4 class="py-2 last:pb-0">{{$article->title}}
+                        <span class="text-xs text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</span>
+                    </h4>
+                @endforeach
+                </div>
             </aside>
         </div>
     </div>
