@@ -6,7 +6,7 @@
             <figure class="flex p-3 pr-32 h-20 border-b-2 border-zinc-100 bg-white items-center gap-4 overflow-hidden relative">
                 <div>
                     <figcaption class="grow">
-                        <h3 class="font-bold text-sm text-stone-700 leading-5 xl:text-base xl:leading-5">{{$opinion->title}}</h3>
+                        <h3 class="font-bold text-sm text-stone-700 leading-5 md:text-lg lg:text-sm xl:text-base xl:leading-5">{{$opinion->title}}</h3>
                         <p class="text-sm text-stone-400 leading-5">{{$opinion->author->name}}</p>
                     </figcaption>
                 </div>
