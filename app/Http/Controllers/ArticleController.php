@@ -42,8 +42,12 @@ class ArticleController extends Controller
             'title' => 'required',
             'content' => 'required',
             'tags' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'author' => 'nullable'
         ]);
+
+        /* Add a margin to the paragraphs in the article  */
+        str_replace('<p>', '<p class="mb-4">', $formFields['content']);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -62,7 +66,7 @@ class ArticleController extends Controller
         }
 
         $formFields['author_id'] = Auth::id();
-        
+
         Article::create($formFields);
 
         return redirect('/')->with('message', 'Article created successfully!');
@@ -83,7 +87,8 @@ class ArticleController extends Controller
         $formFields = $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'tags' => 'required'
+            'tags' => 'required',
+            'caption' => 'nullable'
         ]);
 
         if ($request->hasFile('image')) {

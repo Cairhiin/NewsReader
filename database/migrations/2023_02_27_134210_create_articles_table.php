@@ -21,6 +21,7 @@ return new class extends Migration
                 $table->longText('content');
                 $table->integer('views');
                 $table->string('image')->nullable();
+                $table->string('caption')->nullable();
                 $table->timestamps();
             });
         }

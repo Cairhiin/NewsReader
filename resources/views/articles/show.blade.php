@@ -14,9 +14,11 @@
                         class="aspect-[11/6] object-none" 
                         src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
                     />
-                    <figcaption class="absolute bottom-4 left-4">
-                        {{-- TODO: Implement a caption --}}
-                    </figcaption>
+                    @if ($article->caption)
+                        <figcaption class="text-stone-500 italic">
+                            {{$article->caption}}
+                        </figcaption>
+                    @endif
                 </figure>
             @endif
             <div class="py-4">{!! $article['content'] !!}</div>
