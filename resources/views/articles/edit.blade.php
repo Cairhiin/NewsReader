@@ -93,14 +93,13 @@
             @enderror
         </div>
 
-        <div class="mb-6">
-            <button
-                class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
-            >
-                Edit article
-            </button>
-
-            <a href="/" class="text-black ml-4"> Back </a>
+        <div class="mb-6 flex gap-4">
+            <x-button class="bg-sky-600 hover:bg-sky-800">
+                <i class="fa-solid fa-pencil pr-3"></i> Edit
+            </x-button>
+            <x-button class="bg-red-600 hover:bg-amber-600">
+                <a href="/"> Back </a>
+            </x-button>
         </div>
     </form>
 </x-layout>
