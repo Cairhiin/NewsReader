@@ -42,9 +42,10 @@
                 <x-header class="mb-4">Populair</x-header>
                 <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
                 @foreach ($populairArticles as $article)
-                    <h4 class="py-2 last:pb-0">{{$article->title}}
-                        <span class="text-xs text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</span>
-                    </h4>
+                    <div class="py-4 last:pb-0">
+                        <p class="text-sm text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
+                        <h4>{{$article->title}}</h4>
+                    </div>
                 @endforeach
                 </div>
             </aside>

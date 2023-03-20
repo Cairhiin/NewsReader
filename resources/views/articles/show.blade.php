@@ -1,14 +1,17 @@
 <x-layout>
     <div class="mx-auto my-4 py-8 px-12 max-w-screen-md bg-white rounded-md shadow-md">
         <div>
-            <h1 class="font-serif text-stone-700 text-3xl font-bold">{{$article['title']}}</h1>
-            <p class="text-stone-400 text-sm"> 
-                {{date('d.m.Y', strtotime($article->updated_at))}}    
+            <h1 class="font-serif text-stone-700 text-3xl font-bold">{{$article->title}}</h1>
+            <p class="mb-4">
+                {{$article->author->name}}
+                <span class="text-stone-400 text-sm"> 
+                    {{date('d.m.Y', strtotime($article->updated_at))}}    
+                </span>
             </p> 
             @if ($article->category->name != 'opinion')
                 <figure class="relative">
                     <img 
-                        class="w-full aspect-[11/6] object-none" 
+                        class="aspect-[11/6] object-none" 
                         src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
                     />
                     <figcaption class="absolute bottom-4 left-4">

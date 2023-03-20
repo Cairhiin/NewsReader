@@ -1,4 +1,4 @@
-@props(['articles', 'categories'])
+@props(['articles'])
 <section class="grid grid-cols-2 grid-rows-2 md:grid-cols-4 md:grid-rows-2 gap-x-1 place-content-start my-4">
     @foreach ($articles as $article)
         @if ($loop->index < 4)
