@@ -24,8 +24,8 @@
                     </figure> 
                     @if ($loop->index == 1)
                         </section>
-                        <div class="flex">
-                            <section class="grid grid-cols-3 gap-8 my-8 basis-2/3">
+                        <div class="flex flex-wrap lg:flex-nowrap">
+                            <section class="grid grid-cols-3 gap-8 my-8 basis-2/3 grow">
                     @endif
                 @else
                     <figure>
@@ -63,7 +63,7 @@
             </div>
             @endif
                 
-            <aside class="@if ($category->name == 'opinion') mt-4 mx-4 @else mt-8 ml-8 @endif col-span-2 ">
+            <aside class="@if ($category->name == 'opinion') mt-4 mx-4 col-span-2 @else lg:mt-8 lg:ml-8 grow @endif">
                 <x-header class="mb-4">Populair</x-header>
                 <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
                 @foreach ($populairArticles as $article)
