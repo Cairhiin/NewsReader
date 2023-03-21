@@ -1,8 +1,14 @@
 <x-layout>
-    <div class="col-span-3 mx-4 xl:mx-32 my-4">
-        <x-header>{{ $category->name }}</x-header>
+    @if ($category->name == 'opinion')
+    <div class="grid grid-cols-3 gap-4">
+        <div class="col-span-2 mx-4 xl:mx-32 my-4">
+    @else
+    <div>
+        <div class="mx-4 xl:mx-32 my-4">
+    @endif
+        <x-header class="mb-4">{{ $category->name }}</x-header>
         @unless ($category->name === 'opinion')
-        <section class="flex justify-center gap-8 my-4">
+        <section class="flex justify-center gap-8 ml-4">
             @foreach ($articles as $article)
                 @if ($loop->index < 2)
                     <figure class="relative">
@@ -53,8 +59,10 @@
                         </div>
                     </div>
                 @endforeach
+                </section>
             @endif
-            <aside class="basis-1/3 ml-8 mt-8">
+                </div>
+            <aside class="mt-4 mr-4">
                 <x-header class="mb-4">Populair</x-header>
                 <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
                 @foreach ($populairArticles as $article)
