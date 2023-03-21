@@ -1,14 +1,14 @@
 <x-layout>
     @if ($category->name == 'opinion')
-    <div class="grid grid-cols-3 gap-4">
-        <div class="col-span-2 mx-4 xl:mx-32 my-4">
+    <div class="lg:grid xl:gap-4 lg:gap-2 grid-cols-5">
+        <div class="lg:col-span-3 xl:col-span-3 mx-4 my-4">
     @else
     <div>
         <div class="mx-4 xl:mx-32 my-4">
     @endif
         <x-header class="mb-4">{{ $category->name }}</x-header>
         @unless ($category->name === 'opinion')
-        <section class="flex justify-center gap-8 ml-4">
+        <section class="flex justify-center gap-8">
             @foreach ($articles as $article)
                 @if ($loop->index < 2)
                     <figure class="relative">
@@ -46,23 +46,24 @@
             @endforeach
                 </section>
             @else
-                <section>
+                <section class="rounded-md shadow-md bg-white divide-y divide-slate-100 px-4">
                 @foreach ($articles as $article)
-                    <div class="flex gap-4 mb-4 bg-white p-2 rounded-sm shadow-md items-center">
-                        <figure class="w-24">
-                            <img class="rounded-full" src="{{$article->author->image ? asset('storage/' . $article->author->image) : asset('images/default.jpg')}}" />
+                    <div class="flex gap-4 p-2 items-center">
+                        <figure class="basis-24 flex-none">
+                            <img class="w-24 rounded-full" src="{{$article->author->image ? asset('storage/' . $article->author->image) : asset('images/default.jpg')}}" />
                         </figure>
-                        <div>
-                            <h3 class="font-bold text-lg">{{$article->title}}</h3>
+                        <div class="grow-0">
+                            <h3 class="font-bold lg:text-base xl:text-lg">{{$article->title}}</h3>
                             <p class="uppercase text-sm">{{$article->author->name}}</p>
-                            <p class="text-stone-500">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
+                            <p class="text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
                         </div>
                     </div>
                 @endforeach
                 </section>
+            </div>
             @endif
-                </div>
-            <aside class="mt-4 mr-4">
+                
+            <aside class="@if ($category->name == 'opinion') mt-4 mx-4 @else mt-8 ml-8 @endif col-span-2 ">
                 <x-header class="mb-4">Populair</x-header>
                 <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
                 @foreach ($populairArticles as $article)
