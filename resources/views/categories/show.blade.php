@@ -1,11 +1,6 @@
 <x-layout>
-    @if ($category->name == 'opinion')
-    <div class="lg:grid xl:gap-4 lg:gap-2 grid-cols-5">
-        <div class="lg:col-span-3 xl:col-span-3 mx-4 my-4">
-    @else
-    <div>
-        <div class="mx-4 xl:mx-32 my-4">
-    @endif
+    <div class="@if ($category->name == 'opinion') lg:grid xl:gap-4 lg:gap-2 grid-cols-5 @endif">
+        <div class="@if ($category->name == 'opinion') lg:col-span-3 xl:col-span-3 @else xl:mx-32 @endif mx-4 my-4">
         <x-header class="mb-4">{{ $category->name }}</x-header>
         @unless ($category->name === 'opinion')
         <section class="flex justify-center gap-8">
