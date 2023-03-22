@@ -1,7 +1,7 @@
 <nav class="sticky top-0 z-10">
     <div class="flex flex-col md:flex-row md:justify-between md:items-center bg-stone-900 text-gray-100 md:p-3">
         <div class="flex items-center p-3 md:p-0">
-            <i id="menuToggle" class="fa-solid fa-bars text-2xl visible md:-ml-6 md:invisible"></i>
+            <i id="menuToggle" class="fa-solid fa-bars text-2xl visible md:-ml-6 md:invisible aria-checked:rotate-90 transition-all"></i>
             <a href="/">
                 <h1 class="text-3xl font-bold uppercase mx-4">
                     News Reader
