@@ -17,7 +17,7 @@
                         </div>
                         <div>
                             <div class="flex gap-4">
-                                <x-button class="border-2 border-sky-600 text-sky-600 hover:border-slate-700 hover:text-slate-700">
+                                <x-button class="border-2 border-sky-600 !text-sky-600 hover:border-slate-700 hover:!text-slate-700">
                                     <a href="/articles/{{$article->id}}/edit">
                                         <i class="fa-solid fa-pen-to-square pr-3"></i> Edit
                                     </a>
@@ -25,7 +25,9 @@
                                 <form method="POST" action="/articles/{{$article->id}}">
                                     @csrf
                                     @method('DELETE')
-                                    <x-button class="border-2 border-red-600 text-red-600 hover:border-red-900 hover:text-red-900"><i class="fa-solid fa-trash pr-3"></i> Delete</x-button>
+                                    <x-button class="border-2 border-red-600 !text-red-600 hover:border-red-900 hover:!text-red-900">
+                                        <i class="fa-solid fa-trash pr-3"></i> Delete
+                                    </x-button>
                                 </form>
                             </div>
                         </div>
