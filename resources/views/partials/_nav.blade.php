@@ -14,10 +14,10 @@
                     md:block md:inline md:ml-2 md:mr-4 bg-slate-800 md:bg-stone-900"
             >
             @auth
-                <div class="inline mx-2 font-bold invisible md:visible">Welcome, {{Auth()->user()->name}}</div>
-                <div class="md:inline ml-2 mr-4">
-                    <a class="mx-2" href="/articles/manage"><i class="fa-solid fa-gear"></i> Manage articles</a>
-                    <form class="md:inline ml-2" method="POST" action="/logout">
+                <div class="inline mx-2 font-bold md:text-sm lg:text-base hidden md:inline">Welcome, {{Auth()->user()->name}}</div>
+                <div class="divide-y divide-slate-900 md:inline">
+                    <a class="block md:mx-2 md:inline p-3 md:p-0 md:text-sm lg:text-base" href="/articles/manage"><i class="fa-solid fa-gear"></i> Manage articles</a>
+                    <form class="block md:inline p-3 md:p-0 md:text-sm lg:text-base" method="POST" action="/logout">
                         @csrf
                         <button type="submit">
                             <i class="fa-solid fa-door-closed"></i> Logout
