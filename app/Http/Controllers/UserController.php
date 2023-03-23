@@ -72,6 +72,15 @@ class UserController extends Controller
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
 
+    public function show(User $user) {
+        // Check if user is authenticated and allowed to access to route
+        if ($user->id != Auth::id()) {
+            abort(403, 'Unauthorized Request');
+        }
+        
+        return view('users.edit', ['user' => $user]);
+    }
+
     public function update(Request $request, User $user)
     {
         if ($user->id != Auth::id()) {
@@ -80,7 +89,6 @@ class UserController extends Controller
 
         $formFields = $request->validate([
             'name' => ['required', 'min:3'],
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'mode' => 'nullable'
         ]);
 
@@ -101,6 +109,6 @@ class UserController extends Controller
         }
 
         $user->update($formFields);
-        return redirect('/user/' . $user->id)->with('message', 'User updated successfully!');
+        return redirect('/users/' . $user->id)->with('message', 'User updated successfully!');
     } 
 }

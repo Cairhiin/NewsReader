@@ -8,6 +8,7 @@
         @if (Auth::check())
             <form method="POST" action="/users/{{Auth::id()}}" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="mb-6">
                     <label for="name" class="inline-block text-lg mb-2">
                         Name
@@ -16,7 +17,7 @@
                         type="text"
                         class="border border-gray-200 rounded p-2 w-full"
                         name="name"
-                        value="{{Auth::user()->name}}"
+                        value="{{$user->name}}"
                     />
                     @error('name')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -31,7 +32,7 @@
                         type="file"
                         class="border border-gray-200 rounded p-2 w-full"
                         name="image"
-                        value="{{Auth::user()->image}}"
+                        value="{{$user->image}}"
                     />
                     @error('image')
                         <p class="text-red-500 mt-1">{{$message}}</p>
@@ -42,11 +43,11 @@
                     <label for="mode" class="inline-block text-lg mb-2">
                         Dark Mode
                     </label>
-                    <input type="radio" id="light" name="mode" value="light" @if (Auth::user()->mode == 'light') checked @endif>
+                    <input type="radio" id="light" name="mode" value="light" @if ($user->mode == 'light') checked @endif>
                     <label for="child">Light mode</label><br>
-                    <input type="radio" id="dark" name="mode" value="dark" @if (Auth::user()->mode == 'dark') checked @endif>
+                    <input type="radio" id="dark" name="mode" value="dark" @if ($user->mode == 'dark') checked @endif>
                     <label for="adult">Dark mode</label><br>
-                    <input type="radio" id="default" name="mode" value="default" @if (Auth::user()->mode == 'default') checked @endif>
+                    <input type="radio" id="default" name="mode" value="default" @if ($user->mode == 'default') checked @endif>
                     <label for="senior">OS preference</label>
                     @error('mode')
                         <p class="text-red-500 mt-1">{{$message}}</p>
