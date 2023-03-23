@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -70,4 +71,36 @@ class UserController extends Controller
 
         return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
     }
+
+    public function update(Request $request, User $user)
+    {
+        if ($user->id != Auth::id()) {
+            abort(403, 'Unauthorized Request');
+        }
+
+        $formFields = $request->validate([
+            'name' => ['required', 'min:3'],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'mode' => 'nullable'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $allowedExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+            $fileExt = $image->getClientOriginalExtension();
+
+            if(!in_array($fileExt, $allowedExtensions)) {
+                return back()->withErrors(['image' => 'Invalid file format']); 
+            }
+
+            if($image->getSize() <= 2000000) {
+                $formFields['image'] = $image->store('images', 'public');
+            } else {
+                return back()->withErrors(['image' => 'File is too large']); 
+            }
+        }
+
+        $user->update($formFields);
+        return redirect('/user/' . $user->id)->with('message', 'User updated successfully!');
+    } 
 }

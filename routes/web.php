@@ -43,5 +43,10 @@ Route::get('/login',
 
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+Route::put('/users/{user}', 
+    [UserController::class, 'update'])->middleware('auth');
+
+Route::get('/users/{user}', [UserController::class, 'show'])->middleware('auth');
+
 // Category Routes
 Route::get('/categories/{category}', [CategoryController::class, 'show']);

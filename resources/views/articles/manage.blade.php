@@ -9,7 +9,7 @@
         </header>
                 @unless($articles->isEmpty())
                 @foreach ($articles as $article)
-                    <div class="flex gap-4 items-center justify-between even:bg-stone-200 odd:bg-stone-300/75 p-3">
+                    <div class="flex gap-4 items-center justify-between even:bg-stone-200 odd:bg-stone-200/75 p-3">
                         <div>
                             <a href="/articles/{{$article->id}}">
                                 {{$article->title}}
