@@ -16,13 +16,16 @@
             @auth
                 <div class="inline mx-2 font-bold md:text-sm lg:text-base hidden md:inline">Welcome, {{Auth()->user()->name}}</div>
                 <div class="divide-y divide-slate-900 md:inline">
-                    <a class="block md:mx-2 md:inline p-3 md:p-0 md:text-sm lg:text-base" href="/articles/manage">
-                        <i class="fa-solid fa-gear pr-2"></i> Manage articles
+                    <a class="block md:mx-3 md:inline p-3 md:p-0 md:text-sm lg:text-base" href="/users/{{Auth::id()}}">
+                        <i class="fa-solid fa-gear pr-2"></i>Settings
+                    </a>
+                    <a class="block md:mx-3 md:inline p-3 md:p-0 md:text-sm lg:text-base" href="/articles/manage">
+                        <i class="fa-solid fa-gauge pr-2"></i>Dashboard
                     </a>
                     <form class="block md:inline p-3 md:p-0 md:text-sm lg:text-base" method="POST" action="/logout">
                         @csrf
                         <button type="submit">
-                            <i class="fa-solid fa-door-closed pr-2"></i> Logout
+                            <i class="fa-solid fa-door-closed pr-2"></i>Logout
                         </button>
                     </form>
                 </div>
