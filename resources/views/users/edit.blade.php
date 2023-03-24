@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="max-w-screen-sm mx-auto px-8 py-4 my-4 bg-stone-200 rounded-md shadow-md">
+    <div class="max-w-screen-sm mx-auto px-8 py-4 my-4 bg-stone-200 dark:bg-stone-900 rounded-md shadow-md">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Change user settings

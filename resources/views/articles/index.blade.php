@@ -19,7 +19,7 @@
                 <div class="basis-3/5 lg:mr-12 mb-8 grow">
                     <x-header>More news</x-header>
                 @elseif ($loop->index > 8)
-                    <x-article.simple-card :article=$article class="bg-white rounded-sm"></x-article.simple-card>
+                    <x-article.simple-card :article=$article class="bg-white dark:bg-gray-800 rounded-sm"></x-article.simple-card>
                 @endif
             @endforeach
                 </div>
@@ -27,7 +27,7 @@
                     @if ($article->category->name == 'news')       
                         <aside class="basis-2/5 grow">
                             <x-header>Opinion</x-header>
-                            <x-article.opinion-sidebar :opinions=$opinions class="bg-white"></x-article.opinion-sidebar>
+                            <x-article.opinion-sidebar :opinions=$opinions class="bg-white dark:bg-gray-800"></x-article.opinion-sidebar>
                         </aside>
                     @endif
                 @endif

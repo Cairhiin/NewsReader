@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="@if (Auth::user() && Auth::user()->mode == 'dark') dark @endif">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-zinc-100 text-stone-700">
+<body class="bg-zinc-100 text-stone-700 dark:bg-gray-900 dark:text-zinc-100">
     <header>
         @include('partials._nav')
     </header>
@@ -20,7 +20,7 @@
         {{-- VIEW OUTPUT GOES HERE --}}
         {{$slot}}
     </main>
-    <footer class="text-center bg-stone-800 p-4 text-gray-100">
+    <footer class="text-center bg-stone-800 dark:bg-zinc-900 p-4 text-gray-100">
         Copyright Frank van de Voorde, <?php echo Date("Y"); ?>
     </footer>
     <x-flash-message />
