@@ -12,7 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-zinc-100 text-stone-700 dark:bg-gray-900 dark:text-zinc-100">
+<body class="bg-zinc-100 text-stone-700 dark:bg-gray-900 dark:text-slate-200">
     <header>
         @include('partials._nav')
     </header>

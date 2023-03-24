@@ -10,7 +10,7 @@
         <form method="POST" action="/users/authenticate">
             @csrf
             <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2"
+                <label for="email" class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Email</label
                 >
                 <input
@@ -27,7 +27,7 @@
             <div class="mb-6">
                 <label
                     for="password"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                 >
                     Password
                 </label>
@@ -42,12 +42,12 @@
             </div>
 
             <div class="mb-6">
-                <button
+                <x-button
                     type="submit"
-                    class="bg-sky-600 hover:bg-sky-800 text-white rounded py-2 px-4 transition-colors duration-500 easeout"
+                    class="bg-sky-600 hover:bg-sky-800"
                 >
-                    Login
-                </button>
+                <i class="fa-solid fa-arrow-right-to-bracket pr-2"></i> Login
+                </x-button>
             </div>
 
             <div class="mt-8">

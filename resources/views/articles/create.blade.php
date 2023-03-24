@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="max-w-screen-sm mx-auto px-8 py-4 my-4 bg-stone-200 rounded-md shadow-md">
+    <div class="max-w-screen-sm mx-auto px-8 py-4 my-4 bg-stone-200 dark:bg-gray-800 rounded-md shadow-md">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Add a new article
@@ -11,12 +11,12 @@
             <div class="mb-6">
                 <label
                     for="title"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Title</label
                 >
                 <input
                     type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400 rounded p-2 w-full"
                     name="title"
                     placeholder="Title"
                     value="{{old('title')}}"
@@ -27,10 +27,10 @@
             </div>
 
             <div class="mb-6">
-                <label class="block mb-2" for="category" class="inline-block text-lg mb-2">
+                <label class="block mb-2" for="category" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Category
                 </label>
-                <select name="category_id" id="category">
+                <select class="p-2 rounded dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400" name="category_id" id="category">
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
@@ -41,12 +41,12 @@
             </div>
 
             <div class="mb-6">
-                <label for="tags" class="inline-block text-lg mb-2">
+                <label for="tags" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Tags (Comma Separated)
                 </label>
                 <input
                     type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-2 w-full dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400"
                     name="tags"
                     placeholder="Example: sport, politics, etc"
                     value="{{old('tags')}}"
@@ -57,12 +57,12 @@
             </div>
 
             <div class="mb-6">
-                <label for="image" class="inline-block text-lg mb-2">
+                <label for="image" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Image
                 </label>
                 <input
                     type="file"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-2 w-full dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400"
                     name="image"
                     value="{{old('image')}}"
                 />
@@ -74,12 +74,12 @@
             <div class="mb-6">
                 <label
                     for="caption"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Caption</label
                 >
                 <input
                     type="text"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-2 w-full dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400"
                     name="caption"
                     value="{{old('caption')}}"
                 />
@@ -91,13 +91,13 @@
             <div class="mb-6">
                 <label
                     for="content"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                 >
                     Content
                 </label>
                 <textarea
                     id="content"
-                    class="border border-gray-200 rounded p-2 w-full"
+                    class="border border-gray-200 rounded p-2 w-full dark:bg-gray-700 dark:border-gray-900 placeholder:dark:text-slate-400"
                     name="content"
                     rows="10"
                     placeholder="Article main content"              
@@ -108,13 +108,14 @@
             </div>
 
             <div class="mb-6">
-                <button
-                    class="bg-sky-600 hover:bg-sky-800 text-white rounded py-2 px-4 transition-colors duration-500 easeout"
+                <x-button
+                    class="bg-sky-600 hover:bg-sky-800 mr-4"
                 >
                     Add article
-                </button>
-
-                <a href="/" class="text-black ml-4"> Back </a>
+                </x-button>
+                <x-button class="bg-red-600 hover:bg-amber-600">
+                    <a href="/"> Back </a>
+                </x-button>
             </div>
         </form>
 </x-layout>

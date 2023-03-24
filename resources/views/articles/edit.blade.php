@@ -12,7 +12,7 @@
             <div class="mb-6">
                 <label
                     for="title"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Title</label
                 >
                 <input
@@ -27,7 +27,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="tags" class="inline-block text-lg mb-2">
+                <label for="tags" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Tags (Comma Separated)
                 </label>
                 <input
@@ -42,7 +42,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="image" class="inline-block text-lg mb-2">
+                <label for="image" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Image
                 </label>
                 <input
@@ -62,7 +62,7 @@
             <div class="mb-6">
                 <label
                     for="caption"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Caption</label
                 >
                 <input
@@ -79,7 +79,7 @@
             <div class="mb-6">
                 <label
                     for="content"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                 >
                     Content
                 </label>

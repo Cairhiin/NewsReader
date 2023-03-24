@@ -12,7 +12,7 @@
                             src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
                         />
                         <figcaption>
-                            <h2 class="absolute bottom-0 py-4 px-4 text-white font-bold text-2xl drop-shadow leading-7">
+                            <h2 class="text-shadow absolute bottom-0 py-4 px-4 text-white font-bold text-2xl drop-shadow leading-7">
                                 {{$article->title}}
                             </h2>
                         </figcaption>              
@@ -29,10 +29,10 @@
                             src="{{$article->image ? asset('storage/' . $article->image) : asset('images/default.jpg')}}" 
                         />
                         <figcaption>
-                            <h3 class="py-2 text-stone-700 text-lg font-bold leading-5">
+                            <h3 class="py-2 text-stone-700 dark:text-slate-400 text-lg font-bold leading-5">
                                 {{$article->title}}
                             </h3>
-                            <p>
+                            <p class="dark:text-slate-200">
                                 {{ explode('.', $article->content)[0] . '.'}}
                             </p>
                         </figcaption>               
@@ -41,16 +41,15 @@
             @endforeach
                 </section>
             @else
-                <section class="rounded-md shadow-md bg-white divide-y divide-slate-100 px-4">
+                <section class="rounded-md shadow-md bg-white dark:bg-gray-800 divide-y divide-slate-100 dark:divide-slate-500 px-4">
                 @foreach ($articles as $article)
                     <div class="flex gap-4 p-2 items-center">
                         <figure class="basis-24 flex-none">
                             <img class="w-24 rounded-full" src="{{$article->author->image ? asset('storage/' . $article->author->image) : asset('images/default.jpg')}}" />
                         </figure>
-                        <div class="grow-0">
-                            <h3 class="font-bold lg:text-base xl:text-lg">{{$article->title}}</h3>
-                            <p class="uppercase text-sm">{{$article->author->name}}</p>
-                            <p class="text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
+                        <div class="flex-initial">
+                            <h3 class="font-bold lg:text-base xl:text-lg dark:text-slate-400">{{$article->title}}</h3>
+                            <p class="uppercase text-sm dark:text-slate-200">{{$article->author->name}}</p>
                         </div>
                     </div>
                 @endforeach
@@ -60,11 +59,11 @@
                 
             <aside class="@if ($category->name == 'opinion') mt-4 mx-4 col-span-2 @else lg:mt-8 lg:ml-8 grow @endif">
                 <x-header class="mb-4">Populair</x-header>
-                <div class="flex flex-col divide-y divide-slate-100 bg-white rounded mr-0 p-4">
+                <div class="flex flex-col divide-y divide-slate-100 dark:divide-slate-500 bg-white dark:bg-gray-800 rounded mr-0 p-4">
                 @foreach ($populairArticles as $article)
                     <div class="py-4 last:pb-0">
-                        <p class="text-sm text-stone-400">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
-                        <h4>{{$article->title}}</h4>
+                        <p class="text-sm text-stone-400 dark:text-slate-400">{{date('d.m.Y', strtotime($article->updated_at))}}</p>
+                        <h4 class="dark:text-slate-200">{{$article->title}}</h4>
                     </div>
                 @endforeach
                 </div>

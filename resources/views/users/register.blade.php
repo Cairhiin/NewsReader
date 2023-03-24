@@ -10,7 +10,7 @@
         <form method="POST" action="/users" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label for="name" class="inline-block text-lg mb-2">
+                <label for="name" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Name
                 </label>
                 <input
@@ -25,7 +25,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2"
+                <label for="email" class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                     >Email</label
                 >
                 <input
@@ -40,7 +40,7 @@
             </div>
 
             <div class="mb-6">
-                <label for="image" class="inline-block text-lg mb-2">
+                <label for="image" class="inline-block text-xl mb-2 font-bold dark:text-slate-400">
                     Image
                 </label>
                 <input
@@ -57,7 +57,7 @@
             <div class="mb-6">
                 <label
                     for="password"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                 >
                     Password
                 </label>
@@ -74,7 +74,7 @@
             <div class="mb-6">
                 <label
                     for="password2"
-                    class="inline-block text-lg mb-2"
+                    class="inline-block text-xl mb-2 font-bold dark:text-slate-400"
                 >
                     Confirm Password
                 </label>
@@ -89,12 +89,12 @@
             </div>
 
             <div class="mb-6">
-                <button
+                <x-button
                     type="submit"
-                    class="bg-sky-600 hover:bg-sky-800 text-white rounded py-2 px-4 transition-colors duration-500 easeout"
+                    class="bg-sky-600 hover:bg-sky-800"
                 >
-                    Sign Up
-                </button>
+                    <i class="fa-solid fa-user-plus pr-2"></i>Sign Up
+                </x-button>
             </div>
 
             <div class="mt-8">
