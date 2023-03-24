@@ -15,9 +15,11 @@ class ArticleController extends Controller
             'articles' => Article::latest()->with('category')
                 ->whereNot('category_id', '=', '5') // Filter out opinion pieces
                 ->filter(request(['tag', 'category', 'search']))
+                ->orderBy('created_at', 'DESC')
                 ->simplePaginate(20),
             'opinions' => Article::latest()->with('category')
                 ->where('category_id', '=', '5')
+                ->orderBy('created_at', 'DESC')
                 ->simplePaginate(5), 
         ]);
     }

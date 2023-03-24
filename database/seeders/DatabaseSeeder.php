@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         'name' => 'news'
        ]);
 
-        Article::factory(10)->create([
+        Article::factory(50)->create([
             'author_id' => $user->id,
             'category_id' => $category->id
         ]);
