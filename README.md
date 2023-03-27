@@ -2,7 +2,7 @@
 
 A project inspired by working for a local newspaper with a wordpage custom website.
 
-Personal goals: learning to work with Laravel and TailwindCSS.
+**Personal goals**: learning to work with Laravel and TailwindCSS.
 
 ## Responsive Design
 
