@@ -2,6 +2,8 @@
 
 A project inspired by working for a local newspaper with a wordpage custom website.
 
+Personal goals: learning to work with Laravel and TailwindCSS.
+
 ## Responsive Design
 
 ![Screenshot 2023-03-24 125435](https://user-images.githubusercontent.com/21054780/227503377-a8a9e7d1-3277-4f34-aff1-92739a561b35.png)
